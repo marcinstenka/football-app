@@ -1,45 +1,46 @@
 package marcin.stenka.footballapp.player;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import marcin.stenka.footballapp.club.Club;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@ToString
-//@EqualsAndHashCode
 @Entity
 @Table(name = "players")
 public class Player implements Comparable<Player>, Serializable {
-
+    @Id
+    private UUID id;
+    @Column(name = "player_name")
     private String name;
+    @Column(name = "player_surname")
     private String surname;
+    @Column(name = "player_age")
     private int age;
+    @JoinColumn(name = "player_club")
+    @ManyToOne
     private Club club;
 
-//    public PlayerDTO toDTO() {
-//        return new PlayerDTO(this.name, this.surname, this.age, this.club.getName());
-//    }
+    public PlayerDto toDto() {
+        return new PlayerDto(this.id, this.name, this.surname, this.age, this.club.getName());
+    }
 
-//    Custom builder to set player into the club when .club()
     public static class PlayerBuilder {
         private Club club;
-        public PlayerBuilder club(Club club){
-            this.club = club;
-            return this;
-        }
+
         public Player build() {
             Player player = new Player();
             if (club != null) {
-                club.addPlayer(player);
+                club.addPlayer(player); // CAUSE ERROR - FIND WHY
             }
+            player.id = this.id;
             player.name = this.name;
             player.surname = this.surname;
             player.age = this.age;
