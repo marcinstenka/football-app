@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ClubServiceImp implements ClubService{
+    private final ClubRepository clubRepository;
     @Autowired
-    private ClubRepository clubRepository;
+    public ClubServiceImp (ClubRepository clubRepository){
+        this.clubRepository = clubRepository;
+    }
     @Override
     public List<Club> getAllClubs() {
         return clubRepository.findAll();
@@ -19,7 +22,6 @@ public class ClubServiceImp implements ClubService{
     }
     @Override
     public void addClub(Club club){
-
         clubRepository.save(club);
     }
 }
