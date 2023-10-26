@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PlayerServiceImp implements PlayerService{
-    @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    public PlayerServiceImp(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
+
     @Override
     public List<Player> getAllPlayers() {
         return playerRepository.findAll();
@@ -18,8 +22,11 @@ public class PlayerServiceImp implements PlayerService{
     }
     @Override
     public void addPlayer(Player player){
-        System.out.println("JESTEM TUTAJ");
-
         playerRepository.save(player);
+    }
+
+    @Override
+    public void deleteAll() {
+        playerRepository.deleteAll();
     }
 }

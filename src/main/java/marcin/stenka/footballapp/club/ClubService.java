@@ -8,4 +8,5 @@ public interface ClubService {
     List<Club> getAllClubs();
     Club findByName(String name);
     void addClub(Club club);
+    void deleteAll();
 }

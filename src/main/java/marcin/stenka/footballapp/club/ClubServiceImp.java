@@ -22,6 +22,7 @@ public class ClubServiceImp implements ClubService{
     }
     @Override
     public void addClub(Club club){
+
         clubRepository.save(club);
     }
 }
