@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PlayerServiceImp implements PlayerService{
-    @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    public PlayerServiceImp(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
+
     @Override
     public List<Player> getAllPlayers() {
         return playerRepository.findAll();
