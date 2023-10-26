@@ -12,23 +12,20 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@SuperBuilder
+@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "players")
 public class Player implements Comparable<Player>, Serializable {
     @Id
     private UUID id;
-//    @Column(name = "player_name")
+
     private String name;
-//    @Column(name = "player_surname")
     private String surname;
-//    @Column(name = "player_age")
     private int age;
     @ManyToOne
     @JoinColumn(name = "club")
-    @JsonIgnore
     private Club club;
 
     public PlayerDto toDto() {
@@ -37,6 +34,10 @@ public class Player implements Comparable<Player>, Serializable {
 
 //    public static class PlayerBuilder {
 //        private Club club;
+//        private UUID id;
+//        private String name;
+//        private String surname;
+//        private int age;
 //
 //        public Player build() {
 //            Player player = new Player();
@@ -56,12 +57,23 @@ public class Player implements Comparable<Player>, Serializable {
         return Integer.compare(this.age, other.age);
     }
     public String toString(){
-        return "Player {" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", club=" + club.getName() +
-                '}';
+        if (club != null){
+            return "Player {" +
+                    "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", age=" + age +
+                    ", club=" + club.getName() +
+                    '}';
+        } else{
+            return "Player {" +
+                    "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", age=" + age +
+                    ", club=NONE"  +
+                    '}';
+        }
+
+
     }
     public int hashCode(){
         int x = (int) Math.pow(name.length(),(int)this.age);

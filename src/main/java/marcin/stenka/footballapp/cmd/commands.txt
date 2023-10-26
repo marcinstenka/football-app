@@ -1,0 +1,4 @@
+add_club c44f3c44-7434-11ee-b962-0242ac120002 Zadupie 2023
+add_player c44f3c44-7434-11ee-b962-0242ac120001 Marcin Stenka 22 Zadupie
+get_club_players Zadupie
+change_player_club Stenka Barcelona

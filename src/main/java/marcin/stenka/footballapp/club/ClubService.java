@@ -9,4 +9,5 @@ public interface ClubService {
     Club findByName(String name);
     void addClub(Club club);
     void deleteAll();
+    void deleteByName(String name);
 }

@@ -17,21 +17,23 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity
-
 @Table(name = "clubs")
 public class Club implements Comparable<Club>, Serializable {
     @Id
     private UUID id;
 
-//    @Column(name = "club_name")
     private String name;
-//    @Column(name = "club_founding_year")
     private int foundingYear;
 
-    @Builder.Default
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "club")
+//    @Builder.Default
     private List<Player> players = new ArrayList<Player>();
 
+    public Club(String name, int foundingYear, List<Player> players){
+        this.name = name;
+        this.foundingYear = foundingYear;
+        this.players = players;
+    }
     public void addPlayer(Player player){
         players.add(player);
     }
