@@ -22,4 +22,8 @@ public class ClubServiceImp implements ClubService{
 
         clubRepository.save(club);
     }
+    @Override
+    public void deleteAll() {
+        clubRepository.deleteAll();
+    }
 }

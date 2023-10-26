@@ -18,8 +18,11 @@ public class PlayerServiceImp implements PlayerService{
     }
     @Override
     public void addPlayer(Player player){
-        System.out.println("JESTEM TUTAJ");
-
         playerRepository.save(player);
+    }
+
+    @Override
+    public void deleteAll() {
+        playerRepository.deleteAll();
     }
 }
