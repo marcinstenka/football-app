@@ -56,8 +56,13 @@ public class Player implements Comparable<Player>, Serializable {
 //    }
     @Override
     public int compareTo(Player other) {
-        return Integer.compare(this.age, other.age);
-    }
+        int ageComparison = Integer.compare(this.age, other.age);
+
+        if (ageComparison != 0) {
+            return ageComparison;
+        } else {
+            return this.surname.compareTo(other.surname);
+        }    }
     public String toString(){
         if (club != null){
             return "Player {" +

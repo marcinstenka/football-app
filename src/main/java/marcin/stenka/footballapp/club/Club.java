@@ -40,8 +40,12 @@ public class Club implements Comparable<Club>, Serializable {
     }
     @Override
     public int compareTo(Club other) {
-        return Integer.compare(this.foundingYear, other.foundingYear);
-    }
+        int foundingYearComparsion = Integer.compare(this.foundingYear, other.foundingYear);
+        if (foundingYearComparsion != 0) {
+            return foundingYearComparsion;
+        } else {
+            return this.name.compareTo(other.name);
+    }}
 
     public String toString() {
         return "Club {" +

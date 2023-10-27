@@ -140,9 +140,12 @@ public class ApplicationCommand implements CommandLineRunner {
                     }
                 }
                 case "quit" -> {
+
                     break main_loop;
+
                 }
             }
         }
+        System.exit(0);
     }
 }

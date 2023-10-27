@@ -27,17 +27,18 @@ public class FootballAppApplication {
 //		Player player3 = Player.builder().id(UUID.randomUUID()).name("Vinicius").surname("Junior").age(23).club(realMadrid).build();
 //		Player player4 = Player.builder().id(UUID.randomUUID()).name("Virgil").surname("Van Dijk").age(32).club(liverpool).build();
 //
-//		Set<Player> allPlayers = Stream.of(barcelona, realMadrid)
+//		Set<Player> allPlayers = Stream.of(barcelona, realMadrid, liverpool)
 //				.flatMap(club -> club.getPlayers().stream())
 //				.collect(Collectors.toSet());
 //
+//		System.out.println("WSZYSCY");
 //		System.out.println(allPlayers);
 //
 //		List<Player> filteredAndSortedPlayers = allPlayers.stream()
 //				.filter(player -> player.getAge() > 30)
 //				.sorted(Comparator.comparing(Player::getSurname))
 //				.collect(Collectors.toList());
-//
+//		System.out.println("SORTED");
 //		System.out.println(filteredAndSortedPlayers);
 //
 //
@@ -45,19 +46,18 @@ public class FootballAppApplication {
 //				.map(Player::toDto)
 //				.sorted(Comparator.naturalOrder())
 //				.collect(Collectors.toList());
-//
+//		System.out.println("DTO");
 //		System.out.println(playerDtoList);
 //
 //
-//		// Serializacja
 //		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("clubs.ser"))) {
-//			out.writeObject(List.of(barcelona, realMadrid));
+//			out.writeObject(List.of(barcelona, realMadrid, liverpool));
 //			System.out.println("Clubs serialized and saved to 'clubs.ser'");
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
 //
-//		// Deserializacja
+//		System.out.println("DESERIALIZACJA");
 //		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("clubs.ser"))) {
 //			List<Club> deserializedClubs = (List<Club>) in.readObject();
 //
@@ -75,8 +75,8 @@ public class FootballAppApplication {
 //		}
 //		List<Club> clubs = Arrays.asList(barcelona, realMadrid, liverpool);
 //
-//		int[] poolSizes = {2, 4};// Rozmiary puli wątków
-//
+//		int[] poolSizes = {2, 4};
+//		System.out.println("POOL");
 //		for (int poolSize : poolSizes) {
 //			ForkJoinPool customPool = new ForkJoinPool(poolSize);
 //
