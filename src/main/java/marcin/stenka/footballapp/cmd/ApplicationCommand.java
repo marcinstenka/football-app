@@ -25,19 +25,40 @@ public class ApplicationCommand implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String command;
+        main_loop:
         while(true) {
             command = scanner.next();
             System.out.println(command);
             switch (command) {
+                case "help" ->{
+                    System.out.println("1. get_player SURNAME");
+                    System.out.println("2. get_club NAME");
+                    System.out.println("3. get_all_players");
+                    System.out.println("4. get_all_clubs");
+                    System.out.println("5. delete_player SURNAME");
+                    System.out.println("6. delete_club NAME");
+                    System.out.println("7. add_player ID NAME SURNAME AGE CLUB");
+                    System.out.println("8. add_club ID NAME FOUNDINGYEAR");
+                    System.out.println("9. change_player_club SURNAME NAME");
+                    System.out.println("10. DOES NOT WORK - get_club_players");
+                }
                 case "get_player" -> {
                     String surname = scanner.next();
                     Player player = playerService.findBySurname(surname);
-                    System.out.println(player);
+                    if (player != null){
+                        System.out.println(player);
+                    } else{
+                        System.out.println("Nie ma takiego zawodnika w bazie danych!");
+                    }
                 }
                 case "get_club" -> {
                     String name = scanner.next();
                     Club club = clubService.findByName(name);
-                    System.out.println(club);
+                    if (club != null){
+                        System.out.println(club);
+                    } else{
+                        System.out.println("Nie ma takiego klubu w bazie danych!");
+                    }
                 }
                 case "get_all_players" ->{
                     List<Player> players = playerService.getAllPlayers();
@@ -47,19 +68,28 @@ public class ApplicationCommand implements CommandLineRunner {
                     List<Club> clubs = clubService.getAllClubs();
                     System.out.println(clubs);
                 }
-                case "get_club_players" -> {
-                    String clubName = scanner.next();
-                    Club club= clubService.findByName(clubName);
-                    System.out.println(club.getPlayers());
+
+                case "delete_player" -> {
+                    String surname = scanner.next();
+                    Player player = playerService.findBySurname(surname);
+                    if (player != null){
+                        playerService.deleteBySurname(surname);
+                        System.out.println("Zawodnik usunięty!");
+                    } else{
+                        System.out.println("Nie ma takiego zawodnika w bazie danych!");
+                    }
                 }
                 case "delete_club" -> {
-                    String clubName = scanner.next();
-                    clubService.deleteByName(clubName);
+                    String name = scanner.next();
+                    Club club = clubService.findByName(name);
+                    if (club != null){
+                        clubService.deleteByName(name);
+                        System.out.println("Klub usunięty!");
+                    } else{
+                        System.out.println("Nie ma takiego klubu w bazie danych!");
+                    }
                 }
-                case "delete_player" -> {
-                    String player = scanner.next();
-                    playerService.deleteBySurname(player);
-                }
+
                 case "add_player" -> {
                     String id = scanner.next();
                     String name = scanner.next();
@@ -73,7 +103,7 @@ public class ApplicationCommand implements CommandLineRunner {
                         playerService.addPlayer(newPlayer);
                         System.out.println("Zawodnik dodany.");
                     } else {
-                        System.out.println("Nie ma takiego klubu lub istnieje już zawodnik z takim nazwiskiem.");
+                        System.out.println("Nie ma takiego klubu lub istnieje już zawodnik z takim nazwiskiem!");
                     }
                 }
                 case "add_club" -> {
@@ -86,7 +116,7 @@ public class ApplicationCommand implements CommandLineRunner {
                         clubService.addClub(newClub);
                         System.out.println("Klub dodany.");
                     }else {
-                        System.out.println("Taki klub już istenieje.");
+                        System.out.println("Taki klub już istenieje!");
                     }
                 }
                 case "change_player_club" -> {
@@ -97,10 +127,25 @@ public class ApplicationCommand implements CommandLineRunner {
                     if (club != null && player!=null ){
                         playerService.changePlayerClub(surname, club);
                     } else{
-                        System.out.println("Nie ma takiego klubu lub nie istnieje zawodnik z takim nazwiskiem.");
+                        System.out.println("Nie ma takiego klubu lub nie istnieje zawodnik z takim nazwiskiem!");
                     }
+                }
+                case "get_club_players" -> {
+                    String clubName = scanner.next();
+                    Club club= clubService.findByName(clubName);
+                    if (club != null ){
+                        System.out.println(club.getPlayers());
+                    }else {
+                        System.out.println("Nie ma takiego klubu w bazie danych!");
+                    }
+                }
+                case "quit" -> {
+
+                    break main_loop;
+
                 }
             }
         }
+        System.exit(0);
     }
 }

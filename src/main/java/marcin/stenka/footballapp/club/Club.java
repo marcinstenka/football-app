@@ -21,8 +21,9 @@ import java.util.UUID;
 public class Club implements Comparable<Club>, Serializable {
     @Id
     private UUID id;
-
+    @Column(name = "club_name")
     private String name;
+    @Column(name = "club_foundingYear")
     private int foundingYear;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "club")
@@ -34,8 +35,12 @@ public class Club implements Comparable<Club>, Serializable {
     }
     @Override
     public int compareTo(Club other) {
-        return Integer.compare(this.foundingYear, other.foundingYear);
-    }
+        int foundingYearComparsion = Integer.compare(this.foundingYear, other.foundingYear);
+        if (foundingYearComparsion != 0) {
+            return foundingYearComparsion;
+        } else {
+            return this.name.compareTo(other.name);
+    }}
 
     public String toString() {
         return "Club {" +

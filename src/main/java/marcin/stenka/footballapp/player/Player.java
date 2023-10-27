@@ -20,9 +20,11 @@ import java.util.UUID;
 public class Player implements Comparable<Player>, Serializable {
     @Id
     private UUID id;
-
+    @Column(name = "player_name")
     private String name;
+    @Column(name = "player_surname")
     private String surname;
+    @Column(name = "player_age")
     private int age;
     @ManyToOne
     @JoinColumn(name = "club")
@@ -54,8 +56,13 @@ public class Player implements Comparable<Player>, Serializable {
 //    }
     @Override
     public int compareTo(Player other) {
-        return Integer.compare(this.age, other.age);
-    }
+        int ageComparison = Integer.compare(this.age, other.age);
+
+        if (ageComparison != 0) {
+            return ageComparison;
+        } else {
+            return this.surname.compareTo(other.surname);
+        }    }
     public String toString(){
         if (club != null){
             return "Player {" +
