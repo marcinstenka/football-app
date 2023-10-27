@@ -15,9 +15,7 @@ import java.util.UUID;
 @Component
 public class InitializeData implements InitializingBean {
 
-    @Autowired
     private final PlayerService playerService;
-    @Autowired
     private final ClubService clubService;
     @Autowired
     public InitializeData(PlayerService playerService, ClubService clubService) {
@@ -26,8 +24,7 @@ public class InitializeData implements InitializingBean {
     }
     @Override
     public void afterPropertiesSet() throws Exception {
-        clubService.deleteAll();
-        playerService.deleteAll();
+
         Club barcelona = Club.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a1")).name("Barcelona").foundingYear(1899).build();
         Club realMadrid = Club.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a2")).name("Real Madrid").foundingYear(1902).build();
         Club liverpool = Club.builder().id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a3")).name("Liverpool").foundingYear(1892).build();

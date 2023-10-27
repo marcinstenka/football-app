@@ -1,5 +1,6 @@
 package marcin.stenka.footballapp.club;
 
+import jakarta.transaction.Transactional;
 import marcin.stenka.footballapp.player.Player;
 import marcin.stenka.footballapp.player.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class ClubServiceImp implements ClubService{
     public List<Club> getAllClubs() {
         return clubRepository.findAll();
     }
-
+    @Transactional
     public Club findByName(String name) {
         return clubRepository.findByName(name);
     }

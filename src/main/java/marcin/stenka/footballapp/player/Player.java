@@ -14,7 +14,7 @@ import java.util.UUID;
 @Setter
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 @Entity
 @Table(name = "players")
 public class Player implements Comparable<Player>, Serializable {
