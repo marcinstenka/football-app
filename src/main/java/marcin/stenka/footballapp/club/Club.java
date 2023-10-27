@@ -21,8 +21,9 @@ import java.util.UUID;
 public class Club implements Comparable<Club>, Serializable {
     @Id
     private UUID id;
-
+    @Column(name = "club_name")
     private String name;
+    @Column(name = "club_foundingYear")
     private int foundingYear;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "club")

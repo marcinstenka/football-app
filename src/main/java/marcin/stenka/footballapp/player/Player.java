@@ -20,9 +20,11 @@ import java.util.UUID;
 public class Player implements Comparable<Player>, Serializable {
     @Id
     private UUID id;
-
+    @Column(name = "player_name")
     private String name;
+    @Column(name = "player_surname")
     private String surname;
+    @Column(name = "player_age")
     private int age;
     @ManyToOne
     @JoinColumn(name = "club")
