@@ -16,10 +16,9 @@ public class RequestToPlayerFunction implements BiFunction<UUID, PutPlayerReques
                 .name(request.getName())
                 .surname(request.getSurname())
                 .age(request.getAge())
-                .club(
-                        Club.builder()
-                                .id(request.getClub())
-                                .build())
+                .club(Club.builder()
+                        .id(request.getClub())
+                        .build())
                 .build();
     }
 }
