@@ -10,8 +10,8 @@ public class UpdatePlayerWithRequestFunction implements BiFunction<Player, Patch
     public Player apply(Player entity, PatchPlayerRequest request){
         return Player.builder()
                 .id(entity.getId())
-                .name(entity.getName())
-                .surname(entity.getSurname())
+                .name(request.getName())
+                .surname(request.getSurname())
                 .age(request.getAge())
                 .build();
     }
