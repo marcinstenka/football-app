@@ -27,14 +27,8 @@ public class Club implements Comparable<Club>, Serializable {
     private int foundingYear;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "club")
-//    @Builder.Default
     private List<Player> players = new ArrayList<Player>();
 
-    public Club(String name, int foundingYear, List<Player> players){
-        this.name = name;
-        this.foundingYear = foundingYear;
-        this.players = players;
-    }
     public void addPlayer(Player player){
         players.add(player);
     }
