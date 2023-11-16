@@ -19,7 +19,7 @@ public class GetPlayerResponse {
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @ToString
     @EqualsAndHashCode
-    public class Club{
+    public static class Club{
         private UUID id;
         private String name;
     }

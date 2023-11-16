@@ -1,0 +1,103 @@
+### Get all characters
+
+GET http://localhost:8080/api/characters
+
+### Get single character
+
+GET http://localhost:8080/api/characters/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+
+### Get single character, not existing
+
+GET http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Get character portrait
+
+GET http://localhost:8080/api/characters/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0/portrait
+
+### Get character portrait, not existing
+
+GET http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/portrait
+
+### Get user characters
+
+GET http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e/characters
+
+### Get user characters, empty
+
+GET http://localhost:8080/api/users/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/characters
+
+### Getr user characters, not existing
+
+GET http://localhost:8080/api/users/84dfc3e6-99bd-4535-9452-54ccd7edf08e/characters
+
+### Get profession characters
+
+GET http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/characters
+
+### Get profession characters, not existing
+
+GET http://localhost:8080/api/professions/ac4e2683-b2ba-4695-94d9-806a97fce71e/characters
+
+### Create new character
+
+PUT http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Sigrid",
+  "background": "No one special.",
+  "age": 18,
+  "strength": 12,
+  "constitution": 12,
+  "charisma": 12,
+  "health": 24,
+  "profession": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
+}
+
+### Create character portrait
+
+PUT http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/portrait
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="request"; filename="sigrid.png'
+
+< src/main/resources/pl/edu/pg/eti/kask/rpg/avatar/sigrid.png
+--boundary--
+
+### Delete character.
+
+DELETE http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Get all professions
+
+GET http://localhost:8080/api/professions
+
+### Get single profession
+
+GET http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+### Get single profession, not existing
+
+GET http://localhost:8080/api/professions/ac4e2683-b2ba-4695-94d9-806a97fce71e
+
+### Delete profession
+
+DELETE http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+### Get all users
+
+GET http://localhost:8080/api/users
+
+### Get single user
+
+GET http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e
+
+### Get single user, not existing
+
+GET http://localhost:8080/api/users/84dfc3e6-99bd-4535-9452-54ccd7edf08e
+
+### Delete user
+
+DELETE http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e
