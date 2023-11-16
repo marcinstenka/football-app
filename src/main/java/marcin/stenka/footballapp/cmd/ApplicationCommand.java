@@ -1,9 +1,9 @@
 package marcin.stenka.footballapp.cmd;
 
 import marcin.stenka.footballapp.club.Club;
-import marcin.stenka.footballapp.club.ClubService;
+import marcin.stenka.footballapp.club.service.ClubService;
 import marcin.stenka.footballapp.player.Player;
-import marcin.stenka.footballapp.player.PlayerService;
+import marcin.stenka.footballapp.player.service.PlayerService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -65,7 +65,7 @@ public class ApplicationCommand implements CommandLineRunner {
                     System.out.println(players);
                 }
                 case "get_all_clubs" ->{
-                    List<Club> clubs = clubService.getAllClubs();
+                    List<Club> clubs = clubService.findAll();
                     System.out.println(clubs);
                 }
 

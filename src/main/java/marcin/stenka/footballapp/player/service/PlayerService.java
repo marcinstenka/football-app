@@ -1,6 +1,7 @@
-package marcin.stenka.footballapp.player;
+package marcin.stenka.footballapp.player.service;
 
 import marcin.stenka.footballapp.club.Club;
+import marcin.stenka.footballapp.player.Player;
 
 import java.util.List;
 

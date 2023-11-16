@@ -1,12 +1,12 @@
-package marcin.stenka.footballapp.player;
+package marcin.stenka.footballapp.player.service;
 
 import marcin.stenka.footballapp.club.Club;
-import marcin.stenka.footballapp.club.ClubService;
+import marcin.stenka.footballapp.player.Player;
+import marcin.stenka.footballapp.player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class PlayerServiceImp implements PlayerService{
