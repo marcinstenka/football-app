@@ -36,11 +36,9 @@ public class ApplicationCommand implements CommandLineRunner {
                     System.out.println("3. get_all_players");
                     System.out.println("4. get_all_clubs");
                     System.out.println("5. delete_player SURNAME");
-                    System.out.println("6. delete_club NAME");
-                    System.out.println("7. add_player ID NAME SURNAME AGE CLUB");
-                    System.out.println("8. add_club ID NAME FOUNDINGYEAR");
-                    System.out.println("9. change_player_club SURNAME NAME");
-                    System.out.println("10. DOES NOT WORK - get_club_players");
+                    System.out.println("6. add_player ID NAME SURNAME AGE CLUB");
+                    System.out.println("7. add_club ID NAME FOUNDINGYEAR");
+                    System.out.println("8. change_player_club SURNAME NAME");
                 }
                 case "get_player" -> {
                     String surname = scanner.next();
@@ -79,16 +77,16 @@ public class ApplicationCommand implements CommandLineRunner {
                         System.out.println("Nie ma takiego zawodnika w bazie danych!");
                     }
                 }
-                case "delete_club" -> {
-                    String name = scanner.next();
-                    Club club = clubService.findByName(name);
-                    if (club != null){
-                        clubService.deleteByName(name);
-                        System.out.println("Klub usunięty!");
-                    } else{
-                        System.out.println("Nie ma takiego klubu w bazie danych!");
-                    }
-                }
+//                case "delete_club" -> {
+//                    String name = scanner.next();
+//                    Club club = clubService.findByName(name);
+//                    if (club != null){
+//                        clubService.deleteByName(name);
+//                        System.out.println("Klub usunięty!");
+//                    } else{
+//                        System.out.println("Nie ma takiego klubu w bazie danych!");
+//                    }
+//                }
 
                 case "add_player" -> {
                     String id = scanner.next();

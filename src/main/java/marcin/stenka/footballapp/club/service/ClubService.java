@@ -13,7 +13,6 @@ public interface ClubService {
     Optional<Club> findById(UUID id);
     void addClub(Club club);
     void deleteAll();
-    void deleteByName(String name);
     void deleteById(UUID id);
 
 }

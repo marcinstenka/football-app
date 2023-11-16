@@ -56,6 +56,9 @@ public class PlayerServiceImp implements PlayerService{
         Player player = playerRepository.findBySurname(surname);
         playerRepository.delete(player);
     }
+    public void deleteById(UUID id){
+        playerRepository.findById(id).ifPresent(playerRepository::deleteById);
+    }
 
     public void changePlayerClub(String surname, Club club) {
         Player player = playerRepository.findBySurname(surname);

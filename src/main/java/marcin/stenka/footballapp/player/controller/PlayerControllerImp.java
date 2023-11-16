@@ -47,11 +47,15 @@ public class PlayerControllerImp implements PlayerController {
 
     @Override
     public void putPlayer(UUID id, PutPlayerRequest request) {
-
+        playerService.addPlayer(requestToPlayer.apply(id, request));
     }
 
     @Override
     public void deletePlayer(UUID id) {
-
+        playerService.findById(id)
+                .ifPresentOrElse(
+                        player -> playerService.deleteById(id),
+                        () -> {throw new ResponseStatusException(HttpStatus.NOT_FOUND);}
+                );
     }
 }

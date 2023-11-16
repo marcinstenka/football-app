@@ -17,6 +17,7 @@ public interface PlayerService {
 
     void deleteAll();
     void deleteBySurname(String surname);
+    void deleteById(UUID id);
     void changePlayerClub(String surname, Club club);
 
 }
