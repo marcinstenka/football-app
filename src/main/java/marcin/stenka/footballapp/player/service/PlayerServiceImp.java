@@ -1,34 +1,42 @@
 package marcin.stenka.footballapp.player.service;
 
 import marcin.stenka.footballapp.club.Club;
+import marcin.stenka.footballapp.club.ClubRepository;
 import marcin.stenka.footballapp.player.Player;
 import marcin.stenka.footballapp.player.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class PlayerServiceImp implements PlayerService{
     private final PlayerRepository playerRepository;
+    private final ClubRepository clubRepository;
     @Autowired
-    public PlayerServiceImp(PlayerRepository playerRepository) {
+    public PlayerServiceImp(PlayerRepository playerRepository, ClubRepository clubRepository) {
         this.playerRepository = playerRepository;
+        this.clubRepository = clubRepository;
     }
 
     @Override
-    public List<Player> getAllPlayers() {
+    public List<Player> findAll() {
         return playerRepository.findAll();
     }
 
-    public List<Player> getAllPlayers(Club playersClub) {
-        return playersClub.getPlayers();
+    public Optional<List<Player>> findAllByClub(UUID clubId) {
+        return clubRepository.findById(clubId)
+                .map(playerRepository::findAllByClub);
     }
 
     public Player findBySurname(String surname) {
         return playerRepository.findBySurname(surname);
     }
-
+    public Optional <Player> findById(UUID id){
+        return playerRepository.findById(id);
+    }
 
     public void deleteClubFromPlayer(Player player) {
         player.setClub(null);

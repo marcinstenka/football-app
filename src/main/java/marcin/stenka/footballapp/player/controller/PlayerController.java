@@ -1,28 +1,37 @@
 package marcin.stenka.footballapp.player.controller;
 
-import marcin.stenka.footballapp.player.Player;
-import marcin.stenka.footballapp.player.service.PlayerService;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import marcin.stenka.footballapp.player.dto.GetPlayerResponse;
+import marcin.stenka.footballapp.player.dto.GetPlayersResponse;
+import marcin.stenka.footballapp.player.dto.PutPlayerRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.UUID;
 
-@RestController
-public class PlayerController {
-    @Autowired
-    private PlayerService playerService;
+public interface PlayerController {
+    @GetMapping("/api/players")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    GetPlayersResponse getPlayers();
 
-    @GetMapping("/players")
-    public List<Player> getAllPlayers() {
-        return playerService.getAllPlayers();
-    }
-    @GetMapping("/players/{surname}")
-    public Player findBySurname(@PathVariable String surname) {
-        return playerService.findBySurname(surname);
-    }
-    @PostMapping("/players")
-    public void addPlayer(@RequestBody Player player) {
-        playerService.addPlayer(player);
-    }
+    @GetMapping("/api/clubs/{clubId}/players")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    GetPlayersResponse getClubPlayers(@PathVariable("clubId")UUID clubId);
+
+    @GetMapping("/api/players/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    GetPlayerResponse getPlayer(@PathVariable("id") UUID id);
+
+    @PutMapping("/api/players/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    void putPlayer(@PathVariable("id") UUID id, @RequestBody PutPlayerRequest request);
+
+    @DeleteMapping("/api/players/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deletePlayer(@PathVariable("id") UUID id);
 }
 

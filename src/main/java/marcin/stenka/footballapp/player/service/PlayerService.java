@@ -4,10 +4,13 @@ import marcin.stenka.footballapp.club.Club;
 import marcin.stenka.footballapp.player.Player;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public interface PlayerService {
-    List<Player> getAllPlayers();
-    List<Player> getAllPlayers(Club club);
+    List<Player> findAll();
+    Optional<List<Player>> findAllByClub(UUID clubId);
+    Optional<Player> findById(UUID id);
     Player findBySurname(String surname);
     void deleteClubFromPlayer(Player player);
     void addPlayer(Player player);
@@ -15,4 +18,5 @@ public interface PlayerService {
     void deleteAll();
     void deleteBySurname(String surname);
     void changePlayerClub(String surname, Club club);
+
 }

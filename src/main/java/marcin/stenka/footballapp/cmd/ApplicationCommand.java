@@ -61,7 +61,7 @@ public class ApplicationCommand implements CommandLineRunner {
                     }
                 }
                 case "get_all_players" ->{
-                    List<Player> players = playerService.getAllPlayers();
+                    List<Player> players = playerService.findAll();
                     System.out.println(players);
                 }
                 case "get_all_clubs" ->{
