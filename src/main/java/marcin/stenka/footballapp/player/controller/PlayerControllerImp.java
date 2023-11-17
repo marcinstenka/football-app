@@ -3,6 +3,7 @@ package marcin.stenka.footballapp.player.controller;
 import marcin.stenka.footballapp.player.Player;
 import marcin.stenka.footballapp.player.dto.GetPlayerResponse;
 import marcin.stenka.footballapp.player.dto.GetPlayersResponse;
+import marcin.stenka.footballapp.player.dto.PatchPlayerRequest;
 import marcin.stenka.footballapp.player.dto.PutPlayerRequest;
 import marcin.stenka.footballapp.player.function.PlayerToResponseFunction;
 import marcin.stenka.footballapp.player.function.PlayersToResponseFunction;
@@ -52,6 +53,11 @@ public class PlayerControllerImp implements PlayerController {
     @Override
     public void putPlayer(UUID id, PutPlayerRequest request) {
         playerService.addPlayer(requestToPlayer.apply(id, request));
+    }
+
+    @Override
+    public void patchPlayer(UUID id, PatchPlayerRequest request) {
+        playerService.updatePlayer(updatePlayerWithRequest.apply(playerService.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)), request));
     }
 
     @Override

@@ -1,103 +1,58 @@
-### Get all characters
+### Get all players
 
-GET http://localhost:8080/api/characters
+GET http://localhost:8080/api/players
 
-### Get single character
+### Get single player
 
-GET http://localhost:8080/api/characters/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+GET http://localhost:8080/api/player/c4804e0f-769e-4ab9-9ebe-0578fb4f00a4
 
-### Get single character, not existing
+### Get single player, not existing
 
-GET http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+GET http://localhost:8080/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00aa
 
-### Get character portrait
+### Create new player
 
-GET http://localhost:8080/api/characters/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0/portrait
-
-### Get character portrait, not existing
-
-GET http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/portrait
-
-### Get user characters
-
-GET http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e/characters
-
-### Get user characters, empty
-
-GET http://localhost:8080/api/users/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/characters
-
-### Getr user characters, not existing
-
-GET http://localhost:8080/api/users/84dfc3e6-99bd-4535-9452-54ccd7edf08e/characters
-
-### Get profession characters
-
-GET http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/characters
-
-### Get profession characters, not existing
-
-GET http://localhost:8080/api/professions/ac4e2683-b2ba-4695-94d9-806a97fce71e/characters
-
-### Create new character
-
-PUT http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
-Content-Type: application/json
-Authorization: Basic a2V2aW46dXNlcnVzZXI=
+PUT http://localhost:8080/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
 
 {
-  "name": "Sigrid",
-  "background": "No one special.",
-  "age": 18,
-  "strength": 12,
-  "constitution": 12,
-  "charisma": 12,
-  "health": 24,
-  "profession": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
+    "name": "Joao",
+    "surname": "Felix",
+    "age": 24,
+    "club": "c4804e0f-769e-4ab9-9ebe-0578fb4f00a1"
 }
 
-### Create character portrait
+http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/players
 
-PUT http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/portrait
-Content-Type: multipart/form-data; boundary=boundary
+### Delete player.
 
---boundary
-Content-Disposition: form-data; name="request"; filename="sigrid.png'
+DELETE http://localhost:8080/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
 
-< src/main/resources/pl/edu/pg/eti/kask/rpg/avatar/sigrid.png
---boundary--
+### Get all clubs
 
-### Delete character.
+GET http://localhost:8080/api/clubs
 
-DELETE http://localhost:8080/api/characters/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+### Get single club
 
-### Get all professions
+GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
 
-GET http://localhost:8080/api/professions
+### Get single club, not existing
 
-### Get single profession
+GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a1
 
-GET http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+### Add new club
 
-### Get single profession, not existing
+PUT http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
 
-GET http://localhost:8080/api/professions/ac4e2683-b2ba-4695-94d9-806a97fce71e
+{
+    "name": "Juventus",
+    "foundingYear": 189
+}
 
-### Delete profession
+### Delete club
 
-DELETE http://localhost:8080/api/professions/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+DELETE http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
 
-### Get all users
+### Get club players
 
-GET http://localhost:8080/api/users
+GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/players
 
-### Get single user
-
-GET http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e
-
-### Get single user, not existing
-
-GET http://localhost:8080/api/users/84dfc3e6-99bd-4535-9452-54ccd7edf08e
-
-### Delete user
-
-DELETE http://localhost:8080/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e

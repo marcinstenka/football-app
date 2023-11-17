@@ -14,6 +14,7 @@ public class UpdatePlayerWithRequestFunction implements BiFunction<Player, Patch
                 .name(request.getName())
                 .surname(request.getSurname())
                 .age(request.getAge())
+                .club(entity.getClub())
                 .build();
     }
 }

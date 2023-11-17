@@ -15,6 +15,5 @@ public interface PlayerRepository extends JpaRepository<Player, UUID> {
     void deleteById(UUID id);
     List<Player> findAll();
     List<Player> findAllByClub(Club club);
-    void deleteById(Player player);
 
 }

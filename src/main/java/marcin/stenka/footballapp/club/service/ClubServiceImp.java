@@ -35,12 +35,17 @@ public class ClubServiceImp implements ClubService{
     public void addClub(Club club){
         clubRepository.save(club);
     }
+    public void updateClub(Club club){
+        clubRepository.save(club);
+    }
 
     public void deleteAll() {
         clubRepository.deleteAll();
     }
 
     public void deleteById(UUID id){
-        clubRepository.findById(id).ifPresent(clubRepository::delete);
+        if(clubRepository.findById(id).isPresent()){
+            clubRepository.deleteById(id);
+        }
     }
 }

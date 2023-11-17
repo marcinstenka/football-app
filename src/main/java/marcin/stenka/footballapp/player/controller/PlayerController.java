@@ -3,6 +3,7 @@ package marcin.stenka.footballapp.player.controller;
 
 import marcin.stenka.footballapp.player.dto.GetPlayerResponse;
 import marcin.stenka.footballapp.player.dto.GetPlayersResponse;
+import marcin.stenka.footballapp.player.dto.PatchPlayerRequest;
 import marcin.stenka.footballapp.player.dto.PutPlayerRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,11 @@ public interface PlayerController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     void putPlayer(@PathVariable("id") UUID id, @RequestBody PutPlayerRequest request);
+
+    @PatchMapping("/api/players/{id}/update")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    void patchPlayer( @PathVariable("id") UUID id, @RequestBody PatchPlayerRequest request);
 
     @DeleteMapping("/api/players/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -47,7 +47,7 @@ public class PlayerServiceImp implements PlayerService{
         playerRepository.save(player);
     }
 
-
+    public void updatePlayer(Player player){ playerRepository.save(player);}
     public void deleteAll() {
         playerRepository.deleteAll();
     }
@@ -57,7 +57,9 @@ public class PlayerServiceImp implements PlayerService{
         playerRepository.delete(player);
     }
     public void deleteById(UUID id){
-        playerRepository.findById(id).ifPresent(playerRepository::deleteById);
+        if (playerRepository.findById(id).isPresent()){
+            playerRepository.deleteById(id);
+        }
     }
 
     public void changePlayerClub(String surname, Club club) {

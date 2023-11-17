@@ -14,7 +14,7 @@ public interface PlayerService {
     Player findBySurname(String surname);
     void deleteClubFromPlayer(Player player);
     void addPlayer(Player player);
-
+    void updatePlayer(Player player);
     void deleteAll();
     void deleteBySurname(String surname);
     void deleteById(UUID id);

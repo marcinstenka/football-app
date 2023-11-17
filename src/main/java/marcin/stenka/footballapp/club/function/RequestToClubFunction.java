@@ -10,6 +10,7 @@ import java.util.function.BiFunction;
 public class RequestToClubFunction implements BiFunction<UUID, PutClubRequest, Club> {
     @Override
     public Club apply(UUID id, PutClubRequest request){
+    System.out.println(request.getFoundingYear());
         return Club.builder()
                 .id(id)
                 .name(request.getName())

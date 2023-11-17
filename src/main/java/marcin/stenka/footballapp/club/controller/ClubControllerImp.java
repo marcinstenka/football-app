@@ -1,5 +1,7 @@
 package marcin.stenka.footballapp.club.controller;
 
+import marcin.stenka.footballapp.club.dto.PatchClubRequest;
+import marcin.stenka.footballapp.club.function.UpdateClubWithRequestFunction;
 import marcin.stenka.footballapp.club.service.ClubService;
 import marcin.stenka.footballapp.club.dto.GetClubResponse;
 import marcin.stenka.footballapp.club.dto.GetClubsResponse;
@@ -19,13 +21,15 @@ public class ClubControllerImp implements ClubController{
     private final ClubToResponseFunction clubToResponse;
     private final ClubsToResponseFunction clubsToResponse;
     private final RequestToClubFunction requestToClub;
+    private final UpdateClubWithRequestFunction updateClubWithRequest;
 
     @Autowired
-    public ClubControllerImp(ClubService clubService, ClubToResponseFunction clubToResponse, ClubsToResponseFunction clubsToResponse, RequestToClubFunction requestToClub){
+    public ClubControllerImp(ClubService clubService, ClubToResponseFunction clubToResponse, ClubsToResponseFunction clubsToResponse, RequestToClubFunction requestToClub, UpdateClubWithRequestFunction updateClubWithRequest){
         this.clubService = clubService;
         this.clubToResponse = clubToResponse;
         this.clubsToResponse = clubsToResponse;
         this.requestToClub = requestToClub;
+        this.updateClubWithRequest = updateClubWithRequest;
     }
 
     @Override
@@ -44,7 +48,10 @@ public class ClubControllerImp implements ClubController{
     public void putClub(UUID id, PutClubRequest request) {
         clubService.addClub(requestToClub.apply(id, request));
     }
-
+    @Override
+    public void patchClub(UUID id, PatchClubRequest request){
+        clubService.updateClub(updateClubWithRequest.apply(clubService.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)), request));
+    }
     @Override
     public void deleteClub(UUID id) {
         clubService.findById(id).ifPresentOrElse(

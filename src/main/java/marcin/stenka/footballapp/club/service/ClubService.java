@@ -12,6 +12,7 @@ public interface ClubService {
     Club findByName(String name);
     Optional<Club> findById(UUID id);
     void addClub(Club club);
+    void updateClub(Club club);
     void deleteAll();
     void deleteById(UUID id);
 
