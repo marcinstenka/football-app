@@ -24,6 +24,7 @@ public class GetClubsResponse {
     public static class Club {
         private UUID id;
         private String name;
+        private int foundingYear;
     }
 
     @Singular

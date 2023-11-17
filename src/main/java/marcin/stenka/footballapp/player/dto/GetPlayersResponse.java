@@ -21,6 +21,7 @@ public class GetPlayersResponse {
     public static class Player{
         private UUID id;
         private String name;
+        private String surname;
     }
 
     @Singular

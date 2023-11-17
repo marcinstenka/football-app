@@ -42,6 +42,7 @@ public class Player implements Comparable<Player>, Serializable {
     public String toString(){
         if (club != null){
             return "Player {" +
+                    "id='" + id + '\'' +
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
                     ", age=" + age +
@@ -49,6 +50,7 @@ public class Player implements Comparable<Player>, Serializable {
                     '}';
         } else{
             return "Player {" +
+                    "id='" + id + '\'' +
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
                     ", age=" + age +

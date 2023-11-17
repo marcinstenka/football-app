@@ -2,9 +2,10 @@ package marcin.stenka.footballapp.player.function;
 
 import marcin.stenka.footballapp.player.Player;
 import marcin.stenka.footballapp.player.dto.GetPlayerResponse;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
-
+@Component
 public class PlayerToResponseFunction implements Function<Player, GetPlayerResponse> {
     @Override
     public GetPlayerResponse apply(Player entity){

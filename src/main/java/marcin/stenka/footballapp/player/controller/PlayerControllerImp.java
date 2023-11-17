@@ -7,24 +7,28 @@ import marcin.stenka.footballapp.player.dto.PutPlayerRequest;
 import marcin.stenka.footballapp.player.function.PlayerToResponseFunction;
 import marcin.stenka.footballapp.player.function.PlayersToResponseFunction;
 import marcin.stenka.footballapp.player.function.RequestToPlayerFunction;
+import marcin.stenka.footballapp.player.function.UpdatePlayerWithRequestFunction;
 import marcin.stenka.footballapp.player.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
-
+@RestController
 public class PlayerControllerImp implements PlayerController {
     private final PlayerService playerService;
     private final PlayerToResponseFunction playerToResponse;
     private final PlayersToResponseFunction playersToResponse;
     private final RequestToPlayerFunction requestToPlayer;
+    private final UpdatePlayerWithRequestFunction updatePlayerWithRequest;
     @Autowired
-    public PlayerControllerImp(PlayerService playerService, PlayerToResponseFunction playerToResponse, PlayersToResponseFunction playersToResponse, RequestToPlayerFunction requestToPlayer) {
+    public PlayerControllerImp(PlayerService playerService, PlayerToResponseFunction playerToResponse, PlayersToResponseFunction playersToResponse, RequestToPlayerFunction requestToPlayer, UpdatePlayerWithRequestFunction updatePlayerWithRequest) {
         this.playerService = playerService;
         this.playerToResponse = playerToResponse;
         this.playersToResponse = playersToResponse;
         this.requestToPlayer = requestToPlayer;
+        this.updatePlayerWithRequest = updatePlayerWithRequest;
     }
     @Override
     public GetPlayersResponse getPlayers(){

@@ -43,6 +43,7 @@ public class Club implements Comparable<Club>, Serializable {
 
     public String toString() {
         return "Club {" +
+                "id='" + id + '\'' +
                 "name='" + name + '\'' +
                 ", foundingYear=" + foundingYear +
                 '}';
