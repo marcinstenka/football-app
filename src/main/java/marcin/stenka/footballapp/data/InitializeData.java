@@ -1,10 +1,9 @@
 package marcin.stenka.footballapp.data;
 
-import jakarta.annotation.PostConstruct;
 import marcin.stenka.footballapp.club.Club;
-import marcin.stenka.footballapp.club.ClubService;
+import marcin.stenka.footballapp.club.service.ClubService;
 import marcin.stenka.footballapp.player.Player;
-import marcin.stenka.footballapp.player.PlayerService;
+import marcin.stenka.footballapp.player.service.PlayerService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

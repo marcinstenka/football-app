@@ -26,15 +26,9 @@ public class Club implements Comparable<Club>, Serializable {
     @Column(name = "club_foundingYear")
     private int foundingYear;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "club")
-//    @Builder.Default
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "club", cascade = CascadeType.REMOVE)
     private List<Player> players = new ArrayList<Player>();
 
-    public Club(String name, int foundingYear, List<Player> players){
-        this.name = name;
-        this.foundingYear = foundingYear;
-        this.players = players;
-    }
     public void addPlayer(Player player){
         players.add(player);
     }
@@ -49,6 +43,7 @@ public class Club implements Comparable<Club>, Serializable {
 
     public String toString() {
         return "Club {" +
+                "id='" + id + '\'' +
                 "name='" + name + '\'' +
                 ", foundingYear=" + foundingYear +
                 '}';
