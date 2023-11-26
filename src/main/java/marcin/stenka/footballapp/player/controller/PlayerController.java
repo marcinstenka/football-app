@@ -28,12 +28,10 @@ public interface PlayerController {
 
     @PutMapping("/api/players/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
     void putPlayer(@PathVariable("id") UUID id, @RequestBody PutPlayerRequest request);
 
     @PatchMapping("/api/players/{id}/update")
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void patchPlayer( @PathVariable("id") UUID id, @RequestBody PatchPlayerRequest request);
 
     @DeleteMapping("/api/players/{id}")

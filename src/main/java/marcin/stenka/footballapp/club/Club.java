@@ -26,7 +26,7 @@ public class Club implements Comparable<Club>, Serializable {
     @Column(name = "club_foundingYear")
     private int foundingYear;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "club")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "club", cascade = CascadeType.REMOVE)
     private List<Player> players = new ArrayList<Player>();
 
     public void addPlayer(Player player){

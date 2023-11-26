@@ -22,12 +22,10 @@ public interface ClubController  {
 
     @PutMapping("/api/clubs/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
     void putClub(@PathVariable("id") UUID id, @RequestBody PutClubRequest request);
 
     @PatchMapping("/api/clubs/{id}/update")
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void patchClub(@PathVariable("id") UUID id, @RequestBody PatchClubRequest request);
 
     @DeleteMapping("/api/clubs/{id}")
