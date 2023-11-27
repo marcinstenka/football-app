@@ -1,0 +1,32 @@
+### Get all clubs
+
+GET http://localhost:8080/api/clubs
+
+### Get single club
+
+GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+
+### Get single club, not existing
+
+GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a1
+
+### Add new club
+
+PUT http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
+
+{
+    "name": "Juventus",
+    "foundingYear": 1897
+}
+
+### Update club
+
+PATCH http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/update
+
+{
+    "name":"Lechia",
+    "foundingYear":1945
+}
+### Delete club
+
+DELETE http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
