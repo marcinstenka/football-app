@@ -3,7 +3,6 @@ package marcin.stenka.footballapp.club.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-//import marcin.stenka.footballapp.player.entity.Player;
 
 import java.io.Serializable;
 import java.util.ArrayList;

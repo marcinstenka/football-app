@@ -28,6 +28,7 @@ public class ClubServiceImp implements ClubService{
     }
     public void addClub(Club club){
         clubRepository.save(club);
+        clubEventRepository.add(club);
     }
     public void updateClub(Club club){
         clubRepository.save(club);
