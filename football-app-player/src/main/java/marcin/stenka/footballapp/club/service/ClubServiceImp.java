@@ -1,7 +1,6 @@
 package marcin.stenka.footballapp.club.service;
 
 import marcin.stenka.footballapp.club.entity.Club;
-import marcin.stenka.footballapp.club.event.repository.ClubEventRepository;
 import marcin.stenka.footballapp.club.repository.ClubRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +12,9 @@ import java.util.UUID;
 @Service
 public class ClubServiceImp implements ClubService{
     private final ClubRepository clubRepository;
-    private final ClubEventRepository clubEventRepository;
     @Autowired
-    public ClubServiceImp (ClubRepository clubRepository, ClubEventRepository clubEventRepository){
+    public ClubServiceImp (ClubRepository clubRepository){
         this.clubRepository = clubRepository;
-        this.clubEventRepository = clubEventRepository;
     }
     @Override
     public List<Club> findAll() {
@@ -26,16 +23,18 @@ public class ClubServiceImp implements ClubService{
     public Optional<Club> findById(UUID id) {
         return clubRepository.findById(id);
     }
+
     public void addClub(Club club){
         clubRepository.save(club);
     }
     public void updateClub(Club club){
         clubRepository.save(club);
     }
+
+
     public void deleteById(UUID id){
         if(clubRepository.findById(id).isPresent()){
             clubRepository.deleteById(id);
-            clubEventRepository.delete(id);
         }
     }
 }

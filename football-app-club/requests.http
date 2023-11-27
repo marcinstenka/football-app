@@ -1,18 +1,18 @@
 ### Get all clubs
 
-GET http://localhost:8080/api/clubs
+GET http://localhost:8082/api/clubs
 
 ### Get single club
 
-GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+GET http://localhost:8082/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
 
 ### Get single club, not existing
 
-GET http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a1
+GET http://localhost:8082/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a1
 
 ### Add new club
 
-PUT http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
+PUT http://localhost:8082/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
 
 {
     "name": "Juventus",
@@ -21,7 +21,7 @@ PUT http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
 
 ### Update club
 
-PATCH http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/update
+PATCH http://localhost:8082/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/update
 
 {
     "name":"Lechia",
@@ -29,4 +29,4 @@ PATCH http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/updat
 }
 ### Delete club
 
-DELETE http://localhost:8080/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
+DELETE http://localhost:8082/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f10a9
