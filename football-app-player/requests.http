@@ -1,0 +1,44 @@
+### Get all players
+
+GET http://localhost:8081/api/players
+
+### Get single player
+
+GET http://localhost:8081/api/player/c4804e0f-769e-4ab9-9ebe-0578fb4f00a4
+
+### Get single player, not existing
+
+GET http://localhost:8081/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00aa
+
+### Update player
+
+PATCH http://localhost:8081/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/update
+
+{
+    "name":"Marcin",
+    "surname": "Stenka",
+    "age": 22
+}
+
+### Create new player
+
+PUT http://localhost:8081/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
+
+{
+    "name": "Joao",
+    "surname": "Felix",
+    "age": 24,
+    "club": "c4804e0f-769e-4ab9-9ebe-0578fb4f00a1"
+}
+
+### Delete player.
+
+DELETE http://localhost:8081/api/players/c4804e0f-769e-4ab9-9ebe-0578fb4f00a9
+
+### Get club players
+
+GET http://localhost:8081/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/players
+
+### Delete club.
+
+DELETE http://localhost:8081/api/clubs/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
