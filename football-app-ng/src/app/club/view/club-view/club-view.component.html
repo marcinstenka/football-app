@@ -1,0 +1,9 @@
+<article *ngIf="club">
+  <p>Id: {{ club.id }}</p>
+  <p>Name: {{ club.name }}</p>
+  <p>Founding Year: {{ club.foundingYear }}</p>
+  <p>Players:</p>
+  <p *ngFor="let player of club.players">
+    {{ player.name }} {{ player.surname }}
+  </p>
+</article>
