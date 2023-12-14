@@ -12,6 +12,7 @@ import { PlayerEditComponent } from './player/view/player-edit/player-edit.compo
 import { PlayerService } from './player/service/player.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ClubListComponent } from './club/view/club-list/club-list.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     PlayerViewComponent,
     PlayerListComponent,
     PlayerEditComponent,
+    ClubListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [PlayerService],

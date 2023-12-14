@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlayerListComponent } from './player/view/player-list/player-list.component';
 import { PlayerViewComponent } from './player/view/player-view/player-view.component';
 import { PlayerEditComponent } from './player/view/player-edit/player-edit.component';
+import { ClubListComponent } from './club/view/club-list/club-list.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     component: PlayerEditComponent,
     path: 'players/:uuid/edit',
+  },
+  {
+    component: ClubListComponent,
+    path: 'clubs',
   },
 ];
 

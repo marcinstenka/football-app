@@ -1,0 +1,25 @@
+<article>
+  <header><h2>Clubs</h2></header>
+
+  <table *ngIf="clubs">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of clubs.clubs">
+        <td>{{ club.name }}td>
+        <td>
+          <a [routerLink]="['/players', club.id]">View</a>
+        </td>
+        <td>
+          <button (click)="onDelete(club)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</article>
