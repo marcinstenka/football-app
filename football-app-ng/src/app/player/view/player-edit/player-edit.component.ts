@@ -47,6 +47,8 @@ export class PlayerEditComponent implements OnInit {
   onSubmit(): void {
     this.playerService
       .putPlayer(this.uuid!, this.player!)
+
       .subscribe(() => this.router.navigate(['/players']));
+    console.log(this.player);
   }
 }

@@ -34,6 +34,7 @@ public class GatewayApplication {
 						.path(
 								"/api/players/{uuid}",
 								"/api/players",
+								"/api/players/{uuid}/update",
 								"/api/clubs/{uuid}/players"
 						)
 						.uri(playerUrl)
@@ -55,7 +56,7 @@ public class GatewayApplication {
 		final CorsConfiguration corsConfig = new CorsConfiguration();
 		corsConfig.setAllowedOrigins(Collections.singletonList("*"));
 		corsConfig.setMaxAge(3600L);
-		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
+		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT", "PATCH"));
 		corsConfig.addAllowedHeader("*");
 
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

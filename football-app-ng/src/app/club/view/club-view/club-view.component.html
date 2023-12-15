@@ -1,9 +1,10 @@
 <article *ngIf="club">
-  <p>Id: {{ club.id }}</p>
-  <p>Name: {{ club.name }}</p>
-  <p>Founding Year: {{ club.foundingYear }}</p>
-  <p>Players:</p>
+  <p><b>Id: </b> {{ club.id }}</p>
+  <p><b>Name: </b>{{ club.name }}</p>
+  <p><b>Founding Year: </b> {{ club.foundingYear }}</p>
+  <p><b>Players:</b></p>
   <p *ngFor="let player of club.players">
-    {{ player.name }} {{ player.surname }}
+    - {{ player.name }} {{ player.surname }}
+    <a [routerLink]="['/players', player.id, 'edit']">Edit</a>
   </p>
 </article>

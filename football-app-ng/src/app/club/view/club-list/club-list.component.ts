@@ -21,6 +21,7 @@ export class ClubListComponent implements OnInit {
   newClub: ClubForm = { id: '', name: '', foundingYear: 0 };
 
   ngOnInit(): void {
+    console.log('ASDASDA');
     this.service.getClubs().subscribe((clubs) => (this.clubs = clubs));
   }
   onDelete(club: Club): void {
