@@ -1,28 +1,29 @@
 <article>
   <header><h2>Players</h2></header>
-
-  <table *ngIf="players">
-    <thead>
-      <tr>
-        <th>Name and Surname</th>
-        <th>View</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let player of players.players">
-        <td>{{ player.name }} {{ player.surname }}</td>
-        <td>
-          <a [routerLink]="['/players', player.id]">View</a>
-        </td>
-        <td>
-          <a [routerLink]="['/players', player.id, 'edit']">Edit</a>
-        </td>
-        <td>
-          <button (click)="onDelete(player)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <table *ngIf="players">
+      <thead>
+        <tr>
+          <th>Name and Surname</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players.players">
+          <td>{{ player.name }} {{ player.surname }}</td>
+          <td>
+            <a [routerLink]="['/players', player.id]">View</a>
+          </td>
+          <td>
+            <a [routerLink]="['/players', player.id, 'edit']">Edit</a>
+          </td>
+          <td>
+            <button (click)="onDelete(player)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </article>

@@ -37,7 +37,7 @@ export class PlayerEditComponent implements OnInit {
           name: player.name,
           surname: player.surname,
           age: player.age,
-          club: player.club,
+          club: player.clubName,
         };
         this.original = { ...this.player };
       });
@@ -46,9 +46,8 @@ export class PlayerEditComponent implements OnInit {
 
   onSubmit(): void {
     this.playerService
-      .putPlayer(this.uuid!, this.player!)
-
+      .patchPlayer(this.uuid!, this.player!)
       .subscribe(() => this.router.navigate(['/players']));
-    console.log(this.player);
+    
   }
 }

@@ -5,5 +5,5 @@ export interface PlayerDetails {
   name: string;
   surname: string;
   age: number;
-  club: Club;
+  clubName: Club;
 }

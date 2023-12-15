@@ -3,8 +3,31 @@
   <p><b>Name: </b>{{ club.name }}</p>
   <p><b>Founding Year: </b> {{ club.foundingYear }}</p>
   <p><b>Players:</b></p>
-  <p *ngFor="let player of club.players">
+  <p *ngFor="let player of clubPlayers.players">
     - {{ player.name }} {{ player.surname }}
     <a [routerLink]="['/players', player.id, 'edit']">Edit</a>
   </p>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h2>Add new player to {{ club.name }}</h2>
+    </div>
+
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" name="id" [(ngModel)]="newPlayerId" />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="newPlayer.name" />
+    </div>
+    <div>
+      <label for="surname">Surname:</label>
+      <input id="surname" name="surname" [(ngModel)]="newPlayer.surname" />
+    </div>
+    <div>
+      <label for="age">Age:</label>
+      <input id="age" name="age" [(ngModel)]="newPlayer.age" />
+    </div>
+    <button type="submit">Add new player</button>
+  </form>
 </article>

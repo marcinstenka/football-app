@@ -5,6 +5,7 @@ import { Players } from '../model/players';
 import { PlayerDetails } from '../model/player-details';
 import { PlayerForm } from '../model/player-form';
 import { ClubDetails } from 'src/app/club/model/ClubDetails';
+import { NewPlayer } from '../model/player-new';
 
 @Injectable({
   providedIn: 'root',
@@ -27,10 +28,13 @@ export class PlayerService {
     return this.http.delete(`/api/players/${uuid}`);
   }
 
-  putPlayer(uuid: string, request: PlayerForm): Observable<any> {
+  patchPlayer(uuid: string, request: PlayerForm): Observable<any> {
     return this.http.patch(
       `http://localhost:8083/api/players/${uuid}/update`,
       request
     );
+  }
+  putPlayer(uuid: string, request: NewPlayer): Observable<any> {
+    return this.http.put(`http://localhost:8083/api/players/${uuid}`, request);
   }
 }

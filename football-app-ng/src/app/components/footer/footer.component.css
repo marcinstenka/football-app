@@ -1,10 +1,10 @@
-footer{
-display: flex;
+footer {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   height: 150px;
-  background: #6f58c9;
+  background:  hsl(84, 54%, 41%);
   color: white;
   bottom: 0;
 }

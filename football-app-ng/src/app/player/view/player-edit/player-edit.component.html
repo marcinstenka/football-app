@@ -1,7 +1,7 @@
 <article *ngIf="player">
   <header><h2>Edit player</h2></header>
 
-  <form class="container" #form="ngForm" (ngSubmit)="onSubmit()">
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-4 p-2">
         <div>
@@ -27,16 +27,7 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-4 p-2">
-        <div>
-          <label for="club">Club:</label>
-          <textarea id="club" name="club" [(ngModel)]="player.club"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
+    <div class="row buttons" >
       <div class="col-2 p-2">
         <button type="submit">Update</button>
       </div>
