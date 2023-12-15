@@ -43,7 +43,7 @@ public class GatewayApplication {
 						.host(host)
 						.and()
 						.path(
-								"/api/clubs/{uuid}",
+								"/api/clubs/{uuid}","/api/clubs/{uuid}/update",
 								"/api/clubs"
 						)
 						.uri(clubUrl)

@@ -18,7 +18,9 @@ export class PlayerService {
   }
 
   getPlayer(uuid: string): Observable<PlayerDetails> {
-    return this.http.get<PlayerDetails>(`/api/players/${uuid}`);
+    return this.http.get<PlayerDetails>(
+      `http://localhost:8083/api/players/${uuid}`
+    );
   }
   getClubPlayers(uuid: string): Observable<ClubDetails> {
     return this.http.get<ClubDetails>(`/api/clubs/${uuid}/players`);

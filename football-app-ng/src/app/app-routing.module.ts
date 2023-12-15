@@ -5,6 +5,7 @@ import { PlayerViewComponent } from './player/view/player-view/player-view.compo
 import { PlayerEditComponent } from './player/view/player-edit/player-edit.component';
 import { ClubListComponent } from './club/view/club-list/club-list.component';
 import { ClubViewComponent } from './club/view/club-view/club-view.component';
+import { ClubEditComponent } from './club/view/club-edit/club-edit.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     component: ClubViewComponent,
     path: 'clubs/:uuid',
+  },
+  {
+    component: ClubEditComponent,
+    path: 'clubs/:uuid/edit',
   },
 ];
 

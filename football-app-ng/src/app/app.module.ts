@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClubListComponent } from './club/view/club-list/club-list.component';
 import { ClubViewComponent } from './club/view/club-view/club-view.component';
+import { ClubEditComponent } from './club/view/club-edit/club-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ClubViewComponent } from './club/view/club-view/club-view.component';
     PlayerEditComponent,
     ClubListComponent,
     ClubViewComponent,
+    ClubEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [PlayerService],

@@ -23,4 +23,10 @@ export class ClubService {
   putClub(uuid: string, request: ClubForm): Observable<any> {
     return this.http.put(`/api/clubs/${uuid}`, request);
   }
+  patchClub(uuid: string, request: ClubForm): Observable<any> {
+    return this.http.patch(
+      `http://localhost:8083/api/clubs/${uuid}/update`,
+      request
+    );
+  }
 }

@@ -6,6 +6,7 @@
         <tr>
           <th>Name</th>
           <th>View</th>
+          <th>Edit</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -14,6 +15,9 @@
           <td>{{ club.name }}</td>
           <td>
             <a [routerLink]="['/clubs', club.id]">View</a>
+          </td>
+          <td>
+            <a [routerLink]="['/clubs', club.id, 'edit']">Edit</a>
           </td>
           <td>
             <button (click)="onDelete(club)">Delete</button>
