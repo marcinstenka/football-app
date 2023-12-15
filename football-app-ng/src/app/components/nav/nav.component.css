@@ -1,6 +1,6 @@
-nav{
-    background: hsl(84, 54%, 41%);
-    padding: 50px 0;
+nav {
+  background: hsl(84, 54%, 41%);
+  padding: 50px 0;
 }
 div {
   max-width: fit-content;
@@ -18,5 +18,5 @@ a {
   transition: 0.3s;
 }
 a:hover {
-  color: hsl(252, 51%, 37%)
+  color: hsl(84, 54%, 25%);
 }

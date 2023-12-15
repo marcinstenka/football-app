@@ -14,6 +14,9 @@ header {
   margin: 0 auto;
   color: white;
 }
+h2 {
+  font-size: 25px;
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -44,9 +47,41 @@ article {
 .form button {
   margin: 0 auto;
 }
+table a{
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+table a:hover{
+  color: hsl(84, 54%, 25%);
+}
 .buttons {
   display: flex;
   flex-direction: row !important;
   margin: 0 auto;
   gap: 15px;
+}
+button {
+  padding: 6px 8px;
+  background: hsl(84, 54%, 41%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  border-radius: 10px;
+}
+thead th {
+  position: relative;
+}
+thead th:after {
+  content: "";
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background: hsl(84, 54%, 41%);
 }
