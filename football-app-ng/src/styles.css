@@ -27,6 +27,13 @@ h2 {
 }
 input {
   margin: 10px auto;
+  background: hsl(84, 54%, 80%);
+  border: 1px solid hsl(84, 54%, 41%);
+  padding: 5px 5px 5px 20px;
+}
+input:focus {
+  border-radius: 20px;
+  outline: none;
 }
 article {
   line-height: 1.4;
@@ -47,12 +54,12 @@ article {
 .form button {
   margin: 0 auto;
 }
-table a{
+table a {
   color: white;
   text-decoration: none;
   transition: 0.3s;
 }
-table a:hover{
+table a:hover {
   color: hsl(84, 54%, 25%);
 }
 .buttons {
@@ -69,8 +76,10 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
-button:hover {
+button:hover,
+button:focus {
   border-radius: 10px;
+  outline: none;
 }
 thead th {
   position: relative;
