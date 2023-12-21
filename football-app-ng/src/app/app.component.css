@@ -1,0 +1,6 @@
+div {
+  display: flex;
+  background-color:  hsl(84, 54%, 50%);
+  flex-direction: column;
+  min-height: 100vh;
+}

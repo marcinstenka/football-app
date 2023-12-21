@@ -1,0 +1,50 @@
+<article>
+  <header><h2>Clubs</h2></header>
+  <div class="container">
+    <table *ngIf="clubs">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let club of clubs.clubs">
+          <td>{{ club.name }}</td>
+          <td>
+            <a [routerLink]="['/clubs', club.id]">View</a>
+          </td>
+          <td>
+            <a [routerLink]="['/clubs', club.id, 'edit']">Edit</a>
+          </td>
+          <td>
+            <button (click)="onDelete(club)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div><h2>Add new club</h2></div>
+
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" name="id" [(ngModel)]="newClub.id" />
+    </div>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" [(ngModel)]="newClub.name" />
+    </div>
+    <div>
+      <label for="foundingYear">Founding year:</label>
+      <input
+        id="foundingYear"
+        name="foundingYear"
+        [(ngModel)]="newClub.foundingYear"
+      />
+    </div>
+    <button type="submit">Add new club</button>
+  </form>
+</article>

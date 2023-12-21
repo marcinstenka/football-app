@@ -12,6 +12,7 @@ public class RequestToPlayerFunction implements BiFunction<UUID, PutPlayerReques
 
     @Override
     public Player apply(UUID id, PutPlayerRequest request){
+        System.out.println(request);
         return Player.builder()
                 .id(id)
                 .name(request.getName())

@@ -1,7 +1,12 @@
 package marcin.stenka.footballapp.club.service;
 
+<<<<<<< HEAD:src/main/java/marcin/stenka/footballapp/club/service/ClubServiceImp.java
+import marcin.stenka.footballapp.club.Club;
+import marcin.stenka.footballapp.club.ClubRepository;
+=======
 import marcin.stenka.footballapp.club.entity.Club;
 import marcin.stenka.footballapp.club.repository.ClubRepository;
+>>>>>>> a40d5a81c96a195a86cf47643aec34e534e170d7:football-app/src/main/java/marcin/stenka/footballapp/club/service/ClubServiceImp.java
 import marcin.stenka.footballapp.player.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

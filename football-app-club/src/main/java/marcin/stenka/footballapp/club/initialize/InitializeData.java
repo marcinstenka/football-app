@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 @Component
-public class InitializeData implements InitializingBean {
+public class    InitializeData implements InitializingBean {
     private final ClubService clubService;
     @Autowired
     public InitializeData(ClubService clubService){

@@ -25,8 +25,13 @@ public class Club implements Comparable<Club>, Serializable {
     @Column(name = "club_foundingYear")
     private int foundingYear;
 
+<<<<<<< HEAD:src/main/java/marcin/stenka/footballapp/club/Club.java
+    @Builder.Default
+=======
 
+>>>>>>> a40d5a81c96a195a86cf47643aec34e534e170d7:football-app/src/main/java/marcin/stenka/footballapp/club/entity/Club.java
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "club", cascade = CascadeType.REMOVE)
+
     private List<Player> players = new ArrayList<Player>();
 
     public void addPlayer(Player player){

@@ -52,10 +52,12 @@ public class PlayerControllerImp implements PlayerController {
     @Override
     public void putPlayer(UUID id, PutPlayerRequest request) {
         playerService.addPlayer(requestToPlayer.apply(id, request));
+        System.out.println(requestToPlayer.apply(id, request));
     }
 
     @Override
     public void patchPlayer(UUID id, PatchPlayerRequest request) {
+        System.out.println(id);
         playerService.updatePlayer(updatePlayerWithRequest.apply(playerService.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)), request));
     }
 
