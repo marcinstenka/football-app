@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  football-app-player:
+    image: football-app-player:1.0.0-SNAPSHOT
+    restart: always
+
+  football-app-club:
+    image: football-app-club:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      FOOTBALL_PLAYER_URL: "http://football-app-player:8080"
+
+
+  football-app-gateway:
+    image: football-app-gateway:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      FOOTBALL_PLAYER_URL: "http://football-app-player:8080"
+      FOOTBALL_CLUB_URL: "http://football-app-club:8080"
+      FOOTBALL_GATEWAY_HOST: "football-app-gateway:8080"
+
+  football-app-ng:
+    image: football-app-ng:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      API_URL: http://football-app-gateway:8080/api
+    ports:
+      - "8087:80"

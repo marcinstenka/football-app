@@ -14,5 +14,4 @@ public interface ClubService {
     void updateClub(Club club);
     void deleteAll();
     void deleteById(UUID id);
-
 }
