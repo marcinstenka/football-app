@@ -30,7 +30,6 @@ function main() {
       --label "org.opencontainers.image.ref.name=$(git rev-parse HEAD)" \
       --label "org.opencontainers.image.revision=$(git rev-parse HEAD)" \
       -t "${title}:${version}" .
-    read -p "Press Enter to continue..."
 }
 
 main "$@"

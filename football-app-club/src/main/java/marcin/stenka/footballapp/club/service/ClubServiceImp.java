@@ -29,7 +29,7 @@ public class ClubServiceImp implements ClubService{
     public void addClub(Club club){
         if(clubRepository.findById(club.getId()).isEmpty()){
             clubRepository.save(club);
-//            clubEventRepository.add(club);
+            clubEventRepository.add(club);
         }
         
     }
@@ -39,7 +39,7 @@ public class ClubServiceImp implements ClubService{
     public void deleteById(UUID id){
         if(clubRepository.findById(id).isPresent()){
             clubRepository.deleteById(id);
-//            clubEventRepository.delete(id);
+            clubEventRepository.delete(id);
         }
     }
 }
