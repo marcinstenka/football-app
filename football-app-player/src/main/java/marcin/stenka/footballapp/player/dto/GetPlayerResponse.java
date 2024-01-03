@@ -21,7 +21,6 @@ public class GetPlayerResponse {
     @EqualsAndHashCode
     public static class Club{
         private UUID id;
-        private String name;
     }
     private UUID id;
     private String name;

@@ -27,4 +27,5 @@ public class Club implements Serializable {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Player> players = new ArrayList<Player>();
+
 }

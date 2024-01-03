@@ -1,6 +1,6 @@
-:host {
+div {
   display: flex;
-  background-color: #7e78d2;
+  background-color:  hsl(84, 54%, 50%);
   flex-direction: column;
   min-height: 100vh;
 }
