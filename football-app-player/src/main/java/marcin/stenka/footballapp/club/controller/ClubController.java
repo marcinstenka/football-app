@@ -10,6 +10,7 @@ public interface ClubController  {
     @PutMapping("/api/clubs/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     void putClub(@PathVariable("id") UUID id, @RequestBody PutClubRequest request);
+    
     @DeleteMapping("/api/clubs/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteClub(@PathVariable("id") UUID id);
