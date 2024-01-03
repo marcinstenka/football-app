@@ -1,15 +1,45 @@
 version: '3'
 
 services:
+  h2database-club:
+      image: oscarfonts/h2
+      restart: always
+      environment:
+          H2_OPTIONS: -ifNotExists
+
+  h2database-player:
+    image: oscarfonts/h2
+    restart: always
+    environment:
+        H2_OPTIONS: -ifNotExists
+
   football-app-player:
     image: football-app-player:1.0.0-SNAPSHOT
     restart: always
+    depends_on:
+        - h2database-player
+    healthcheck:
+        test: curl -f http://localhost:8080/api/players || exit 1
+        interval: 30s
+        timeout: 10s
+        retries: 3
+        start_period: 20s
+        start_interval: 5s
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2database-player:1521/football-app-player
+
 
   football-app-club:
     image: football-app-club:1.0.0-SNAPSHOT
     restart: always
+    depends_on:
+        h2database-club:
+                condition: service_started
+        football-app-player:
+            condition: service_healthy
     environment:
       FOOTBALL_PLAYER_URL: "http://football-app-player:8080"
+      SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2database-club:1521/football-app-club
 
   football-app-gateway:
     image: football-app-gateway:1.0.0-SNAPSHOT

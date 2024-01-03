@@ -6,27 +6,24 @@ import { Club } from '../model/Club';
 import { ClubForm } from '../model/ClubForm';
 import { ClubDetails } from '../model/ClubDetails';
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class ClubService {
-  constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) {}
 
-  getClubs(): Observable<Clubs> {
-    return this.http.get<Clubs>('/api/clubs');
-  }
-  getClub(uuid: string): Observable<ClubDetails> {
-    return this.http.get<ClubDetails>(`/api/clubs/${uuid}`);
-  }
-  deleteClub(uuid: string): Observable<any> {
-    return this.http.delete<Club>(`/api/clubs/${uuid}`);
-  }
-  putClub(uuid: string, request: ClubForm): Observable<any> {
-    return this.http.put(`/api/clubs/${uuid}`, request);
-  }
-  patchClub(uuid: string, request: ClubForm): Observable<any> {
-    return this.http.patch(
-      `http://localhost:8083/api/clubs/${uuid}/update`,
-      request
-    );
-  }
+	getClubs(): Observable<Clubs> {
+		return this.http.get<Clubs>('/api/clubs');
+	}
+	getClub(uuid: string): Observable<ClubDetails> {
+		return this.http.get<ClubDetails>(`/api/clubs/${uuid}`);
+	}
+	deleteClub(uuid: string): Observable<any> {
+		return this.http.delete<Club>(`/api/clubs/${uuid}`);
+	}
+	putClub(uuid: string, request: ClubForm): Observable<any> {
+		return this.http.put(`/api/clubs/${uuid}`, request);
+	}
+	patchClub(uuid: string, request: ClubForm): Observable<any> {
+		return this.http.patch(`/api/clubs/${uuid}/update`, request);
+	}
 }
