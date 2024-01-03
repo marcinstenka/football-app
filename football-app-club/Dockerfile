@@ -25,4 +25,5 @@ EXPOSE 8080
 
 COPY target/*.jar /opt/football-app-club/football-app-club.jar
 
+
 CMD ["java", "-jar", "/opt/football-app-club/football-app-club.jar"]
