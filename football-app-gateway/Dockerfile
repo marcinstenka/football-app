@@ -24,7 +24,7 @@ ENV FOOTBALL_GATEWAY_HOST=localhost:8080
 ENV FOOTBALL_PLAYER_URL=http://localhost:8081
 ENV FOOTBALL_CLUB_URL=http://localhost:8082
 
-EXPOSE 8080
+EXPOSE 8080 
 
 COPY target/*.jar /opt/football-app-gateway/football-app-gateway.jar
 

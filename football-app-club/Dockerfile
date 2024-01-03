@@ -19,7 +19,7 @@ ENV SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
 ENV SPRING_H2_CONSOLE_enabled=true
 
-ENV FOOTBALL_PLAYER_URL=http://localhost:8081
+ENV FOOTBALL_PLAYER_URL=http://football-app-player:8080
 
 EXPOSE 8080
 

@@ -11,7 +11,6 @@ services:
     environment:
       FOOTBALL_PLAYER_URL: "http://football-app-player:8080"
 
-
   football-app-gateway:
     image: football-app-gateway:1.0.0-SNAPSHOT
     restart: always
