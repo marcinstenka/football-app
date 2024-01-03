@@ -20,6 +20,6 @@ ENV FOOTBALL_PLAYER_URL=http://localhost:8081
 
 EXPOSE 8080
 
-COPY target/football-app-club-${VERSION}.jar /opt/football-app-club/football-app-club.jar
+COPY target/*.jar /opt/football-app-club/football-app-club-${VERSION}.jar
 
 CMD ["java", "-jar", "/opt/football-app-club/football-app-club.jar"]

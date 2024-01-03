@@ -25,6 +25,7 @@ ENV SPRING_H2_CONSOLE_enabled=true
 
 EXPOSE 8080
 
-COPY target/football-app-player-${VERSION}.jar /opt/football-app-player/football-app-player.jar
+COPY target/*.jar /opt/football-app-player-/football-app-player-${VERSION}.jar
+
 
 CMD ["java", "-jar", "/opt/football-app-player/football-app-player.jar"]
