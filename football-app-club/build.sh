@@ -10,16 +10,27 @@
 #   None.
 #######################################
 function main() {
-    export JAVA_HOME="/c/Program Files/Java/jdk-17"
+    export JAVA_HOME="/c/Program Files/Java/jdk-17"  
+
+    # Extracting title and version directly from Dockerfile using awk
+    title=$(awk -F= '/org.opencontainers.image.title/ {print $2}' Dockerfile | xargs)
+    version=$(awk -F= '/org.opencontainers.image.version/ {print $2}' Dockerfile | xargs)
+
+    # Ensure the variables are set and not empty
+    if [ -z "$title" ] || [ -z "$version" ]; then
+        echo "Error: Failed to extract title or version from Dockerfile."
+        read -p "Press Enter to continue..."
+        exit 1
+    fi
+
     mvn clean verify
-    title="$(grep -n "org.opencontainers.image.title" Dockerfile | cut -f2 -d "=" | xargs)"
-    version="$(grep -n "org.opencontainers.image.version" Dockerfile | cut -f2 -d "=" | xargs)"
+
     docker build \
       --label "org.opencontainers.image.created=$(date +%Y-%m-%dT%H:%M:%S%:z)" \
       --label "org.opencontainers.image.ref.name=$(git rev-parse HEAD)" \
       --label "org.opencontainers.image.revision=$(git rev-parse HEAD)" \
-      -t "${title}":"${version}" .
-      read -p "Press Enter to continue..."
+      -t "${title}:${version}" .
+    read -p "Press Enter to continue..."
 }
 
 main "$@"

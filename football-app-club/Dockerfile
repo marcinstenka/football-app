@@ -1,6 +1,9 @@
 FROM eclipse-temurin:17.0.6_10-jre
 
-
+LABEL org.opencontainers.image.title="football-app-club"
+LABEL org.opencontainers.image.authors="Marcin Stenka"
+LABEL org.opencontainers.image.vendor="Gdańsk University of Technology"
+LABEL org.opencontainers.image.version="1.0.0-SNAPSHOT"
 ENV VERSION="1.0.0-SNAPSHOT"
 
 ENV SERVER_PORT=8080
