@@ -41,6 +41,7 @@ services:
       FOOTBALL_PLAYER_URL: "http://football-app-player:8080"
       SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2database-club:1521/football-app-club
 
+
   football-app-gateway:
     image: football-app-gateway:1.0.0-SNAPSHOT
     restart: always
